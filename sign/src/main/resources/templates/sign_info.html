@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <meta charset="UTF-8"/>
+    <title>报名列表</title>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!--<link href="http://www.bootcss.com/p/layoutit/css/bootstrap-combined.min.css" rel="stylesheet" />-->
+    <!--<link href="http://www.bootcss.com/p/layoutit/css/layoutit.css" rel="stylesheet" />-->
+
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous"/>
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous"/>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th>
+                          姓名
+                    </th>
+                    <th>
+                        性别
+                    </th>
+                    <th>
+                        年龄
+                    </th>
+                    <th>
+                        电话
+                    </th>
+                    <th>
+                        在读学校
+                    </th>
+                    <th>
+                        渠道
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="collect : ${sign_list.content}">
+                    <td th:text="${collect.name}">
+                        1
+                    </td>
+                    <td th:text="${collect.gender}">
+                        TB - Monthly
+                    </td>
+                    <td th:text="${collect.age}">
+                        01/04/2012
+                    </td>
+                    <td th:text="${collect.phone}">
+                        Default
+                    </td>
+                    <td th:text="${collect.school}">
+                        Default
+                    </td>
+                    <td th:text="${collect.channel}">
+                        Default
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row" th:if="${total>1}">
+        <div class="center-block">
+            <ul class="pagination">
+                <li><a href="./sign_info?page=1">&laquo;</a></li>
+                <li th:each="i:${#numbers.sequence(1,total)}" th:class="${page==i?'active':''}">
+                    <a th:href="@{./sign_info(page=${i})}" th:text="${i}"></a></li>
+                <li><a th:href="@{./sign_info?(page=${total})}">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

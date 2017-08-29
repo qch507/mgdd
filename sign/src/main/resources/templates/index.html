@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" class="pixel-ratio-2 retina" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>蘑菇朵朵艺术课程在线预约</title>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" th:href="@{/sm.min.css}"/>
+    <link rel="stylesheet" th:href="@{/swiper.min.css}"/>
+    <link rel="stylesheet" th:href="@{/formStyle.css}"/>
+
+    <style id="form_style_scheme">
+        body {
+            background: #fff
+        }
+
+        .BigTit1 {
+            background: #f0b216;
+            display: block
+        }
+
+        .BigTit1 h2 {
+            color: #ffffff;
+            font-size: 16px;
+            text-align: left
+        }
+
+        .BigTit2 {
+            background: #f0b216;
+            display: block
+        }
+
+        .BigTit2 h2 {
+            color: #fff;
+            font-size: 16px;
+            text-align: left
+        }
+
+        .baseInfo {
+            background: #ffffff
+        }
+
+        .baseInfo .item-title span, .baseInfo .item-title span a {
+            font-size: 12px;
+            color: #6d7275
+        }
+
+        .haederText h2, .sectionMod h3 {
+            font-size: 12px;
+            color: #6d7275
+        }
+
+        .checkBoxAndRadio .modCell ul li span {
+            font-size: 12px;
+            color: #6d7275
+        }
+
+        .haederText p, .sectionMod p, .imgMod p {
+            font-size: 12px;
+            color: #6d7275
+        }
+
+        .activeFormMod {
+            background: #fff
+        }
+
+        .footBtn button {
+            font-size: 16px;
+            color: #fff;
+            background: #f0b216
+        }
+
+        .share-callback {
+            color: #fff;
+            display: none;
+            background: #666;
+            width: 200px;
+            line-height: 50px;
+            height: 50px;
+            font-size: 16PX;
+            font-weight: bold;
+            text-align: center;
+            position: absolute;
+            top: 40%;
+            left: 20%;
+            -moz-border-radius: 25px;
+            -webkit-border-radius: 25px;
+            border-radius: 25px;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+<section class="formMod scroll">
+    <!-- Swiper -->
+    <div class="swiper-container swiper-container-banner swiper-container-horizontal">
+        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-2560px, 0px, 0px);">
+            <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 1280px;">
+                <a href="javascript:void(0)"><img th:src="@{/banner1.jpg}"/></a>
+            </div>
+
+            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" style="width: 1280px;">
+                <a href="javascript:void(0)"><img th:src="@{/banner1.jpg}"/></a>
+            </div>
+            <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" style="width: 1280px;">
+                <a href="javascript:void(0)"><img th:src="@{/banner2.jpg}"/></a>
+            </div>
+            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" style="width: 1280px;">
+                <a href="javascript:void(0)"><img th:src="@{/banner3.jpg}"/></a>
+            </div>
+
+
+        </div>
+        <div class="swiper-pagination swiper-pagination-banner"><span class="swiper-pagination-bullet"></span><span
+                class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span
+                class="swiper-pagination-bullet"></span></div>
+    </div>
+</section>
+<section class="formMod BigTit BigTit1">
+    <h2>蘑菇朵朵艺术 </h2>
+</section>
+<section class="formMod baseInfo list-block">
+    <ul>
+        <li>
+            <div href="#" class="item-link item-content noBg">
+                <div class="item-inner">
+                    <div class="item-title"><img th:src="@{/i1.png}"/> <span><a href="tel:15167275337">15167275337</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                            href="tel:0572-2610656">0572-2610656</a></span></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:void(0)"
+               class="item-link item-content">
+                <div class="item-inner">
+                    <div class="item-title"><img th:src="@{/i2.png}"/>
+                        <span>湖州市吴兴区长兴路518-6号（山水华府西大门商铺）</span></div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)"
+               class="item-link item-content">
+                <div class="item-inner">
+                    <div class="item-title"><img th:src="@{/i3.png}"/> <span>欢迎电话和来店咨询哦</span></div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</section>
+<section class="formMod BigTit BigTit2">
+    <h2>学生信息 </h2>
+</section>
+<div class="mainFrom">
+    <form action="/sign" method="post" id="custom_f">
+        <ul class="formUl">
+            <li class="locked" id="com1" name="id_singleline">
+                <section class="activeFormMod textMod">
+                    <div class="formWrap">
+                        <header class="haederText">
+                            <h2><span>学生姓名</span><i class="com_required">*</i></h2>
+                            <div class="modCell">
+                                <input type="text" name="name"/>
+                            </div>
+                        </header>
+                    </div>
+                </section>
+            </li>
+            <li class="locked" id="com3" name="id_radio">
+                <section class="activeFormMod checkBoxAndRadio radioMod">
+                    <div class="formWrap">
+                        <header class="haederText">
+                            <h2><span>学生性别</span><i class="com_required">*</i></h2>
+                            <div class="modCell tl ">
+                                <ul class="clearfix column-2">
+                                    <li class="optionsLine"><label>
+                                        <input type="radio" name="gender" value="男"/>
+                                        <span class="optionValue">男</span></label></li>
+                                    <li class="optionsLine"><label>
+                                        <input type="radio" name="gender" value="女"/>
+                                        <span class="optionValue">女</span></label></li>
+                                </ul>
+                            </div>
+                        </header>
+                    </div>
+                </section>
+            </li>
+            <li class="locked" id="com5" name="id_singleline">
+                <section class="activeFormMod textMod">
+                    <div class="formWrap">
+                        <header class="haederText"><h2><span>学生年龄（周岁）</span><i class="com_required">*</i></h2>
+                            <div class="modCell"><input type="text" name="age"/></div>
+                        </header>
+                    </div>
+                </section>
+            </li>
+            <li class="locked" id="com6" name="id_singleline">
+                <section class="activeFormMod textMod">
+                    <div class="formWrap">
+                        <header class="haederText"><h2><span>联系电话</span><i class="com_required">*</i></h2>
+                            <div class="modCell"><input type="text" name="phone"/></div>
+                        </header>
+                    </div>
+                </section>
+            </li>
+            <li class="locked" id="com7" name="id_singleline">
+                <section class="activeFormMod textMod">
+                    <div class="formWrap">
+                        <header class="haederText"><h2><span>在读学校</span><i class="com_required">*</i></h2>
+                            <div class="modCell"><input type="text" name="school"/></div>
+                        </header>
+                    </div>
+                </section>
+            </li>
+            <li class="locked" id="com9" name="id_checkbox">
+                <section class="activeFormMod checkBoxAndRadio checkboxMod">
+                    <div class="formWrap">
+                        <header class="haederText"><h2><span>从什么地方知道我们</span><i class="com_required"></i><i
+                                class="redTip">［请<b>至少</b>选择<s>2</s>项］</i></h2>
+                            <div class="modCell tl">
+                                <ul class=" clearfix column-1">
+                                    <li class="optionsLine"><label>
+                                        <input type="checkbox" name="channel_str" value="朋友推荐"/>
+                                        <span class="optionValue">朋友推荐</span></label></li>
+                                    <li class="optionsLine"><label>
+                                        <input type="checkbox" name="channel_str" value="微信公众号"/>
+                                        <span class="optionValue">微信公众号</span></label></li>
+                                    <li class="optionsLine"><label>
+                                        <input type="checkbox" name="channel_str" value="宣传资料"/>
+                                        <span class="optionValue">宣传资料</span></label></li>
+                                    <li class="optionsLine"><label>
+                                        <input type="checkbox" name="channel_str" value="其他地方"/>
+                                        <span class="optionValue">其他地方</span></label></li>
+                                </ul>
+                            </div>
+                        </header>
+                    </div>
+                </section>
+            </li>
+        </ul>
+    </form>
+</div>
+<section class="formMod footBtn">
+    <div class="pad">
+        <button type="button" id="savebutton">提交</button>
+    </div>
+</section>
+<!--<input type="hidden" name="__hash__" value="b39a72887df644ccc11812ce78b67497_f78d19ecde2444d2626d5d4fec8e7ff7" />-->
+<div class="ftHeight"></div>
+<div class="loader">
+    <div class="lodderCss">
+        <div class="loader-inner pacman">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <p>载入图片中</p>
+    </div>
+
+</div>
+<script th:src="@{/zepto.js}"></script>
+<script th:src="@{/sm.min.js}"></script>
+<script th:src="@{/swiper.min.js}"></script>
+<script th:src="@{/sm-city-picker.js}"></script>
+<script th:src="@{/LocalResizeIMG.js}"></script>
+<script th:src="@{/mobileBUGFix.mini.js}"></script>
+<script th:src="@{/formMobi.js}"></script>
+<script type="text/javascript" th:src="@{/jweixin-1.0.0.js}"></script>
+<script th:src="@{/index.js}"></script>
+
+<span class="share-callback">分享成功</span>
+
+
+<style>
+    .xcConfirm .xc_layer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #666666;
+        opacity: 0.5;
+        z-index: 2147000000;
+    }
+
+    .xcConfirm .popBox {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        background-color: #ffffff;
+        z-index: 2147000001;
+        width: 200px;
+        height: 100px;
+        margin-left: -100px;
+        margin-top: -50px;
+        border-radius: 5px;
+        font-weight: bold;
+        color: #535e66;
+    }
+
+    .xcConfirm .txtBox {
+        width: 200px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+    }
+
+</style>
+
+<script th:src="@{/course_fun.js}" type="text/javascript"></script>
+<div class="xcConfirm" id="alertsuccess" th:if="${success} == 1">
+    <div class="xc_layer" onclick="closeAlert()"></div>
+    <div class="popBox">
+        <div class="txtBox">
+            <p>报名成功</p></div>
+    </div>
+</div>
+
+
+</body>
+</html>
